@@ -18,20 +18,20 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.death.DeathGame;
 
-public class Credits implements Screen {
+public class CharacterSelection implements Screen{
     private DeathGame game;
     private SpriteBatch batch;
-    private Texture img, returnTexture;
-    private TextureRegion returnRegion;
-    private TextureRegionDrawable returnDrawable;
-    private Sprite sprite, returnSkin;
+    private Sprite sprite;
+    private Texture characterScreen, kenny, kaiyu, edmond, jonathan, edward, kyle, calvin, alex;
+    private TextureRegion kennyR, kaiyuR, edmondR, jonathanR, edwardR, kyleR, calvinR, alexR;
+    private TextureRegionDrawable kennyD, kaiyuD, edmondD, jonathanD, edwardD, kyleD, calvinD, alexD;
+    private ImageButton kennyB, kaiyuB, edmondB, jonathanB, edwardB, kyleB, calvinB, alexB;
     private OrthographicCamera camera;
     private Viewport viewport;
     private Stage stage;
     private Table table;
-    private ImageButton returnButton;
 
-    public Credits(DeathGame game){
+    public CharacterSelection(DeathGame game){
         this.game = game;
         camera = new OrthographicCamera();
         viewport = new StretchViewport(1920,1080,camera);
@@ -39,44 +39,25 @@ public class Credits implements Screen {
 
         camera.position.set(camera.viewportWidth/2, camera.viewportWidth/2,0);
         stage = new Stage(viewport);
-
     }
 
     @Override
     public void show() {
-        table = new Table();
-        table.top();
-        table.setPosition(450,200);
-		batch = new SpriteBatch();
-		img = new Texture("creditpage.png");
-		returnTexture = new Texture("return.png");
-		returnRegion = new TextureRegion(returnTexture);
-		returnDrawable = new TextureRegionDrawable(returnRegion);
-		returnButton = new ImageButton(returnDrawable);
-		table.add(returnButton);
-		sprite = new Sprite(img);
-  		sprite.setPosition(0,0);
-		sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		stage.addActor(table);
-        Gdx.input.setInputProcessor(stage);
-
-		returnButton.addListener(new ChangeListener(){
-		    @Override
-            public void changed(ChangeEvent e, Actor a){
-                game.setScreen(new Title(game));
-            }
-        });
-
+        batch = new SpriteBatch();
+        characterScreen = new Texture("characterselection.png");
+        sprite = new Sprite(characterScreen);
+        sprite.setPosition(0,0);
+        sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 
     @Override
     public void render(float delta) {
-		Gdx.gl.glClearColor(1, 1, 1, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		sprite.draw(batch);
-		batch.end();
-		stage.draw();
+        Gdx.gl.glClearColor(1, 1, 1, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        batch.begin();
+        sprite.draw(batch);
+        batch.end();
+        stage.draw();
     }
 
     @Override

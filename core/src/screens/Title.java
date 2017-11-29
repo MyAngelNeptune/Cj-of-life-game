@@ -95,7 +95,7 @@ public class Title implements Screen{
         buttonPlay.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                game.setScreen(new Credits());
+                game.setScreen(new CharacterSelection(game));
             }
         });
         buttonExit.addListener(new ChangeListener() {
@@ -107,7 +107,7 @@ public class Title implements Screen{
         buttonCredits.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                game.setScreen(new Credits());
+                game.setScreen(new Credits(game));
             }
         });
     }
