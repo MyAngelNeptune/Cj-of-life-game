@@ -1,0 +1,26 @@
+sprites.png
+size: 2048, 2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kaiyu
+  rotate: false
+  xy: 0, 0
+  size: 647, 936
+  orig: 647, 936
+  offset: 0, 0
+  index: -1
+kaiyu_damaged
+  rotate: false
+  xy: 647, 0
+  size: 647, 936
+  orig: 647, 936
+  offset: 0, 0
+  index: -1
+kaiyu_dead
+  rotate: false
+  xy: 0, 936
+  size: 968, 625
+  orig: 968, 625
+  offset: 0, 0
+  index: -1
