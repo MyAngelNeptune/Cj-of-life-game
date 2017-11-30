@@ -48,8 +48,8 @@ public class Credits implements Screen {
         table.top();
         table.setPosition(450,200);
 		batch = new SpriteBatch();
-		img = new Texture("creditpage.png");
-		returnTexture = new Texture("return.png");
+		img = new Texture("Screens/creditpage.png");
+		returnTexture = new Texture("Buttons/return.png");
 		returnRegion = new TextureRegion(returnTexture);
 		returnDrawable = new TextureRegionDrawable(returnRegion);
 		returnButton = new ImageButton(returnDrawable);

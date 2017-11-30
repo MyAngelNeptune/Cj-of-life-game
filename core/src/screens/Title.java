@@ -57,9 +57,9 @@ public class Title implements Screen{
         table.setPosition(Gdx.graphics.getWidth() - Gdx.graphics.getWidth() / 5, Gdx.graphics.getHeight() / 1.5f);
 
 
-        playTexture = new Texture("play.png");
-        exitTexture = new Texture("quit.png");
-        creditsTexture = new Texture("credits.png");
+        playTexture = new Texture("Buttons/play.png");
+        exitTexture = new Texture("Buttons/quit.png");
+        creditsTexture = new Texture("Buttons/credits.png");
 
         playRegion = new TextureRegion(playTexture);
         exitRegion = new TextureRegion(exitTexture);
@@ -86,7 +86,7 @@ public class Title implements Screen{
 //        creditsSkin = new Sprite(creditsSkin);
 
         batch = new SpriteBatch();
-        Texture title = new Texture("Title.png");
+        Texture title = new Texture("Screens/Title.png");
         titleSplash = new Sprite(title);
         Gdx.input.setInputProcessor(stage); //Start taking input from the ui
         titleSplash.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());

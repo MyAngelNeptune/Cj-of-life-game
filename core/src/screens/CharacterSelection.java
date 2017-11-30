@@ -44,7 +44,7 @@ public class CharacterSelection implements Screen{
     @Override
     public void show() {
         batch = new SpriteBatch();
-        characterScreen = new Texture("characterselection.png");
+        characterScreen = new Texture("Screens/characterselection.png");
         sprite = new Sprite(characterScreen);
         sprite.setPosition(0,0);
         sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
