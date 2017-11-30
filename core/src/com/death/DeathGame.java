@@ -29,6 +29,7 @@ public class DeathGame extends Game {
 	@Override
 	public void create () {
 		setScreen(new Title(game));
+		
 //		batch = new SpriteBatch();
 //		img = new Texture("kaiyu.png");
 //		sprite = new Sprite(img);
