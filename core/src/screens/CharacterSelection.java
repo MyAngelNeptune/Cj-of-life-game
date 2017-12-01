@@ -22,9 +22,7 @@ public class CharacterSelection implements Screen{
     private DeathGame game;
     private SpriteBatch bat;
     private Sprite sprite;
-    private Texture characterScreen, kenny, kaiyu, edmond, jonathan, edward, kyle, calvin, alex;
-    private TextureRegion kennyR, kaiyuR, edmondR, jonathanR, edwardR, kyleR, calvinR, alexR;
-    private TextureRegionDrawable kennyD, kaiyuD, edmondD, jonathanD, edwardD, kyleD, calvinD, alexD;
+    private Texture characterScreen;
     private ImageButton kennyB, kaiyuB, edmondB, jonathanB, edwardB, kyleB, calvinB, alexB, darrenB, junyuB;
     private OrthographicCamera camera;
     private Viewport viewport;
@@ -53,6 +51,8 @@ public class CharacterSelection implements Screen{
         sprite.setPosition(0,0);
         sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
+        alexB = makeButton("CharacterIcons/AlexAvatar.jpg");
+        calvinB = makeButton("CharacterIcons/CalvinAvatar.jpg");
         darrenB = makeButton("CharacterIcons/DarrenAvatar.jpg");
         edmondB = makeButton("CharacterIcons/EdmondAvatar.jpg");
         edwardB = makeButton("CharacterIcons/EdwardAvatar.jpg");
@@ -62,11 +62,13 @@ public class CharacterSelection implements Screen{
         kennyB = makeButton("CharacterIcons/KennyAvatar.jpg");
         kyleB = makeButton("CharacterIcons/KyleAvatar.jpg");
 
+        characterTable.add(alexB);
+        characterTable.add(calvinB);
         characterTable.add(darrenB);
         characterTable.add(edmondB);
         characterTable.add(edwardB);
-        characterTable.add(jonathanB);
         characterTable.row();
+        characterTable.add(jonathanB);
         characterTable.add(junyuB);
         characterTable.add(kaiyuB);
         characterTable.add(kennyB);
@@ -74,16 +76,21 @@ public class CharacterSelection implements Screen{
         characterTable.setScale(2,2);
 
         stage.addActor(characterTable);
+        Gdx.input.setInputProcessor(stage);
+
     }
 
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         bat.begin();
         sprite.draw(bat);
         bat.end();
+
         stage.draw();
+
     }
 
     @Override
