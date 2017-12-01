@@ -25,11 +25,11 @@ public class CharacterSelection implements Screen{
     private Texture characterScreen, kenny, kaiyu, edmond, jonathan, edward, kyle, calvin, alex;
     private TextureRegion kennyR, kaiyuR, edmondR, jonathanR, edwardR, kyleR, calvinR, alexR;
     private TextureRegionDrawable kennyD, kaiyuD, edmondD, jonathanD, edwardD, kyleD, calvinD, alexD;
-    private ImageButton kennyB, kaiyuB, edmondB, jonathanB, edwardB, kyleB, calvinB, alexB;
+    private ImageButton kennyB, kaiyuB, edmondB, jonathanB, edwardB, kyleB, calvinB, alexB, darrenB, junyuB;
     private OrthographicCamera camera;
     private Viewport viewport;
     private Stage stage;
-    private Table table;
+    private Table characterTable;
 
     public CharacterSelection(DeathGame game){
         this.game = game;
@@ -44,12 +44,36 @@ public class CharacterSelection implements Screen{
     @Override
     public void show() {
         bat = new SpriteBatch();
+        characterTable = new Table();
+        characterTable.top();
+        characterTable.setTransform(true);
+        characterTable.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight() / 1.3f);
         characterScreen = new Texture("Screens/characterselection.png");
         sprite = new Sprite(characterScreen);
         sprite.setPosition(0,0);
         sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-        kennyB = makeButton()
+        darrenB = makeButton("CharacterIcons/DarrenAvatar.jpg");
+        edmondB = makeButton("CharacterIcons/EdmondAvatar.jpg");
+        edwardB = makeButton("CharacterIcons/EdwardAvatar.jpg");
+        jonathanB = makeButton("CharacterIcons/JonathanAvatar.jpg");
+        junyuB = makeButton("CharacterIcons/JunyuAvatar.jpg");
+        kaiyuB = makeButton("CharacterIcons/KaiyuAvatar.jpg");
+        kennyB = makeButton("CharacterIcons/KennyAvatar.jpg");
+        kyleB = makeButton("CharacterIcons/KyleAvatar.jpg");
+
+        characterTable.add(darrenB);
+        characterTable.add(edmondB);
+        characterTable.add(edwardB);
+        characterTable.add(jonathanB);
+        characterTable.row();
+        characterTable.add(junyuB);
+        characterTable.add(kaiyuB);
+        characterTable.add(kennyB);
+        characterTable.add(kyleB);
+        characterTable.setScale(2,2);
+
+        stage.addActor(characterTable);
     }
 
     @Override
@@ -86,8 +110,8 @@ public class CharacterSelection implements Screen{
     public void dispose() {
 
     }
-    public ImageButton makeButton(Texture t){
-    Texture img = new Texture(t);
+    public ImageButton makeButton(String s){
+    Texture img = new Texture(s);
     TextureRegion imgRegion= new TextureRegion(img);
     TextureRegionDrawable imgRegionDrawable = new TextureRegionDrawable(imgRegion);
     ImageButton imageButton = new ImageButton(imgRegionDrawable);
