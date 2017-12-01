@@ -20,7 +20,7 @@ import com.death.DeathGame;
 
 public class CharacterSelection implements Screen{
     private DeathGame game;
-    private SpriteBatch batch;
+    private SpriteBatch bat;
     private Sprite sprite;
     private Texture characterScreen, kenny, kaiyu, edmond, jonathan, edward, kyle, calvin, alex;
     private TextureRegion kennyR, kaiyuR, edmondR, jonathanR, edwardR, kyleR, calvinR, alexR;
@@ -43,20 +43,22 @@ public class CharacterSelection implements Screen{
 
     @Override
     public void show() {
-        batch = new SpriteBatch();
+        bat = new SpriteBatch();
         characterScreen = new Texture("Screens/characterselection.png");
         sprite = new Sprite(characterScreen);
         sprite.setPosition(0,0);
         sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        kennyB = makeButton()
     }
 
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.begin();
-        sprite.draw(batch);
-        batch.end();
+        bat.begin();
+        sprite.draw(bat);
+        bat.end();
         stage.draw();
     }
 
@@ -82,6 +84,14 @@ public class CharacterSelection implements Screen{
 
     @Override
     public void dispose() {
+
+    }
+    public ImageButton makeButton(Texture t){
+    Texture img = new Texture(t);
+    TextureRegion imgRegion= new TextureRegion(img);
+    TextureRegionDrawable imgRegionDrawable = new TextureRegionDrawable(imgRegion);
+    ImageButton imageButton = new ImageButton(imgRegionDrawable);
+    return imageButton;
 
     }
 }
