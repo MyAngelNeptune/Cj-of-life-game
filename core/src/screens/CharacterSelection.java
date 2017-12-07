@@ -20,6 +20,7 @@ import com.death.DeathGame;
 import Character.PlayableCharacter;
 
 public class CharacterSelection implements Screen{
+
     private DeathGame game;
     private SpriteBatch bat;
     private Sprite sprite;
@@ -35,7 +36,7 @@ public class CharacterSelection implements Screen{
     public CharacterSelection(DeathGame game){
         this.game = game;
         camera = new OrthographicCamera();
-        viewport = new StretchViewport(1920,1080,camera);
+        viewport = new StretchViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(), camera);
         viewport.apply();
 
         camera.position.set(camera.viewportWidth/2, camera.viewportWidth/2,0);
@@ -81,26 +82,27 @@ public class CharacterSelection implements Screen{
         stage.addActor(characterTable);
         Gdx.input.setInputProcessor(stage);
 
-        kaiyuB.addListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeEvent event, Actor actor) {
-              player = new PlayableCharacter("Characters/kaiyu/kaiyu.png", 10, 10, 100, 50);
-              level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
-              game.setScreen(level);
-            }
-        });
         edmondB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/Edmond/Edmond.png", 10, 10, 100, 50);
+                player = new PlayableCharacter("Characters/edmond/edmond.png", 10, 10, 100, 50);
                 level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
                 game.setScreen(level);
             }
         });
+        kaiyuB.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                player = new PlayableCharacter("Characters/kaiyu/kaiyu.png", 10, 10, 100, 50);
+                level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
+                game.setScreen(level);
+            }
+        });
+
         alexB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/Alex/Alex.png", 10, 10, 100, 50);
+                player = new PlayableCharacter("Characters/alex/alex.png", 10, 10, 100, 50);
                 level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
                 game.setScreen(level);
             }
@@ -108,7 +110,7 @@ public class CharacterSelection implements Screen{
         calvinB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/Calvin/Calvin.png", 10, 10, 100, 50);
+                player = new PlayableCharacter("Characters/calvin/calvin.png", 10, 10, 100, 50);
                 level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
                 game.setScreen(level);
             }
@@ -116,7 +118,7 @@ public class CharacterSelection implements Screen{
         darrenB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/Darren/Darren.png", 10, 10, 100, 50);
+                player = new PlayableCharacter("Characters/darren/darren.png", 10, 10, 100, 50);
                 level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
                 game.setScreen(level);
             }
@@ -124,7 +126,7 @@ public class CharacterSelection implements Screen{
         jonathanB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/Jonathan/Jonathan.png", 10, 10, 100, 50);
+                player = new PlayableCharacter("Characters/jonathan/jonathan.png", 10, 10, 100, 50);
                 level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
                 game.setScreen(level);
             }
@@ -132,7 +134,7 @@ public class CharacterSelection implements Screen{
         edwardB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/Edward/Edward.png", 10, 10, 100, 50);
+                player = new PlayableCharacter("Characters/edward/edward.png", 10, 10, 100, 50);
                 level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
                 game.setScreen(level);
             }
@@ -140,7 +142,7 @@ public class CharacterSelection implements Screen{
         junyuB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/Junyu/Junyu.png", 10, 10, 100, 50);
+                player = new PlayableCharacter("Characters/junyu/junyu.png", 10, 10, 100, 50);
                 level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
                 game.setScreen(level);
             }
@@ -148,7 +150,7 @@ public class CharacterSelection implements Screen{
         kennyB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/Kenny/Kenny.png", 10, 10, 100, 50);
+                player = new PlayableCharacter("Characters/kenny/kenny.png", 10, 10, 100, 50);
                 level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
                 game.setScreen(level);
             }
@@ -156,7 +158,7 @@ public class CharacterSelection implements Screen{
         kyleB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/Kyle/Kyle.png", 10, 10, 100, 50);
+                player = new PlayableCharacter("Characters/kyle/kyle.png", 10, 10, 100, 50);
                 level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
                 game.setScreen(level);
             }

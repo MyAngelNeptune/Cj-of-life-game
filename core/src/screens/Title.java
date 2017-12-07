@@ -41,7 +41,7 @@ public class Title implements Screen{
     public Title(DeathGame game) {
         this.game = game;
         camera = new OrthographicCamera();
-        viewport = new StretchViewport(1920,1080,camera);
+        viewport = new StretchViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(), camera);
         viewport.apply();
 
         camera.position.set(camera.viewportWidth/2, camera.viewportWidth/2,0);

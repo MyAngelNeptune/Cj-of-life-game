@@ -1,5 +1,6 @@
 package screens;
 
+import a.d.G;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -58,8 +59,8 @@ public class Level implements Screen {
         screen = new Sprite(getBG());
         playerSprite = new Sprite(player.getTexture());
         screen.setPosition(0,0);
-        playerSprite.setPosition(100,300);
-        playerSprite.setSize(300, 300);
+        playerSprite.setPosition(Gdx.graphics.getWidth() / 100,Gdx.graphics.getHeight() / 30);
+        playerSprite.setSize(Gdx.graphics.getWidth() / 6.5f, Gdx.graphics.getHeight() / 3.5f);
         screen.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(mainStage);
     }
