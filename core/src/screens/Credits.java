@@ -59,7 +59,6 @@ public class Credits implements Screen {
 		sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		stage.addActor(table);
         Gdx.input.setInputProcessor(stage);
-
 		returnButton.addListener(new ChangeListener(){
 		    @Override
             public void changed(ChangeEvent e, Actor a){
