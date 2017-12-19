@@ -21,7 +21,7 @@ public class DeathGame extends Game {
 	private static final float SCALE_X = (float) 0.5;
 	private static final float SCALE_Y = (float) 0.5;
 	//Pixels per meter
-	public static final float PPM = 1f;
+	public static final float PPM = 10f;
 	private float elapsedTime = 0;
 	private boolean isDead = false;
 

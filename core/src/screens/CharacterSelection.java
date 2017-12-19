@@ -40,8 +40,8 @@ public class CharacterSelection implements Screen{
     private Weapon weapon;
     private World world;
 
-    private static final float XSPEED = 100f;
-    private static final float YSPEED = 150f;
+    private static final float XSPEED = 1f;
+    private static final float YSPEED = 10f;
     private final String MAPFILE = "Levels/LevelOne/caveBG.tmx";
 
     public CharacterSelection(DeathGame game){

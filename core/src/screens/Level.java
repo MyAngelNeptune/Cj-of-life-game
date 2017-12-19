@@ -62,18 +62,20 @@ public class Level implements Screen {
         this.weapon = weapon;
         this.background = new Texture(bg);
         camera = new OrthographicCamera();
-        viewport = new FitViewport(1920, 1080, camera);
+        viewport = new FitViewport(Gdx.graphics.getWidth() / DeathGame.PPM, Gdx.graphics.getHeight() / DeathGame.PPM, camera);
+
+        mapLoader = new TmxMapLoader();
+        map = mapLoader.load(mapFile);
+        renderer = new OrthogonalTiledMapRenderer(map, 1 / DeathGame.PPM);
+
+        camera.position.set(viewport.getWorldWidth() / 2, viewport.getWorldHeight() / 2, 0);
 
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
         b2dr = new Box2DDebugRenderer();
 
-        mapLoader = new TmxMapLoader();
-        map = mapLoader.load(mapFile);
-        renderer = new OrthogonalTiledMapRenderer(map);
-
-        this.world = new World(new Vector2(0,-60), true);
+        this.world = new World(new Vector2(0,-16f), true);
 
         this.player = new PlayableCharacter(player.getStringTexture(),player.getVelocityX(), player.getVelocityY(),5,5,this.world);
 
@@ -84,10 +86,10 @@ public class Level implements Screen {
             Rectangle rect = ((RectangleMapObject) object ).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) , (rect.getY() + rect.getHeight() / 2) );
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / DeathGame.PPM , (rect.getY() + rect.getHeight() / 2) / DeathGame.PPM );
 
             body = world.createBody(bdef);
-            shape.setAsBox((rect.getWidth() / 2)/ DeathGame.PPM, (rect.getHeight() / 2)/ DeathGame.PPM);
+            shape.setAsBox((rect.getWidth() / 2 ) / DeathGame.PPM, (rect.getHeight() / 2) / DeathGame.PPM);
             fdef.shape = shape;
             body.createFixture(fdef);
         }
@@ -131,7 +133,7 @@ public class Level implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
+        viewport.update(width, height);
     }
 
     @Override

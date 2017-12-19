@@ -43,26 +43,26 @@ public class PlayableCharacter extends Actor {
 
         this.world = world;
         defineCharacter();
-//        region = new TextureRegion();
-//        boundary = new Rectangle();
-//        this.velocityX = velocityX;
-//        this.velocityY = velocityY;
-//        healthy = new Texture(texture);
-//        character = healthy;
-//        characterSprite = new Sprite(character);
-//        this.HP = HP;
-//        this.strength = strength;
+        region = new TextureRegion();
+        boundary = new Rectangle();
+        this.velocityX = velocityX;
+        this.velocityY = velocityY;
+        healthy = new Texture(texture);
+        character = healthy;
+        characterSprite = new Sprite(character);
+        this.HP = HP;
+        this.strength = strength;
     }
 
     public void defineCharacter(){
         BodyDef bdef = new BodyDef();
-        bdef.position.set(32 / DeathGame.PPM, 32/ DeathGame.PPM);
+        bdef.position.set(3, 3);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(120/ DeathGame.PPM );
+        shape.setRadius(1);
 
         fdef.shape = shape;
         b2body.createFixture(fdef);
