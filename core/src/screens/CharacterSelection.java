@@ -1,5 +1,7 @@
 package screens;
 
+import Weapon.Melee.Baguette;
+import Weapon.Weapon;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -8,12 +10,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.death.DeathGame;
@@ -32,11 +37,18 @@ public class CharacterSelection implements Screen{
     private PlayableCharacter player;
     private Table characterTable;
     private Level level;
+    private Weapon weapon;
+    private World world;
+
+    private static final float XSPEED = 100f;
+    private static final float YSPEED = 150f;
+    private final String MAPFILE = "Levels/LevelOne/caveBG.tmx";
 
     public CharacterSelection(DeathGame game){
         this.game = game;
+        this.world = new World(new Vector2(0, 0), true);
         camera = new OrthographicCamera();
-        viewport = new StretchViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(), camera);
+        viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(), camera);
         viewport.apply();
 
         camera.position.set(camera.viewportWidth/2, camera.viewportWidth/2,0);
@@ -85,16 +97,17 @@ public class CharacterSelection implements Screen{
         edmondB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/edmond/edmond.png", 10, 10, 100, 50);
-                level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
+                player = new PlayableCharacter("Characters/edmond/edmond.png", XSPEED, YSPEED, 100, 50, world);
+                level = new LevelOne(game, "Levels/LevelOne/cave.png", player, weapon, MAPFILE);
                 game.setScreen(level);
             }
         });
         kaiyuB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/kaiyu/kaiyu.png", 10, 10, 100, 50);
-                level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
+                player = new PlayableCharacter("Characters/kaiyu/kaiyu.png", XSPEED, YSPEED, 100, 50, world);
+                weapon = new Baguette("Weapons/Melee/Baguette.png", 10);
+                level = new LevelOne(game, "Levels/LevelOne/cave.png", player, weapon, MAPFILE);
                 game.setScreen(level);
             }
         });
@@ -102,64 +115,66 @@ public class CharacterSelection implements Screen{
         alexB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/alex/alex.png", 10, 10, 100, 50);
-                level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
+                player = new PlayableCharacter("Characters/alex/alex.png", XSPEED, YSPEED, 100, 50, world);
+                level = new LevelOne(game, "Levels/LevelOne/cave.png", player, weapon, MAPFILE);
                 game.setScreen(level);
             }
         });
         calvinB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/calvin/calvin.png", 10, 10, 100, 50);
-                level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
+                player = new PlayableCharacter("Characters/calvin/calvin.png", XSPEED, YSPEED, 100, 50, world);
+                level = new LevelOne(game, "Levels/LevelOne/cave.png", player, weapon, MAPFILE);
                 game.setScreen(level);
             }
         });
         darrenB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/darren/darren.png", 10, 10, 100, 50);
-                level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
+                player = new PlayableCharacter("Characters/darren/darren.png", XSPEED, YSPEED, 100, 50, world);
+                level = new LevelOne(game, "Levels/LevelOne/cave.png", player, weapon, MAPFILE);
                 game.setScreen(level);
             }
         });
         jonathanB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/jonathan/jonathan.png", 10, 10, 100, 50);
-                level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
+                player = new PlayableCharacter("Characters/jonathan/jonathan.png", XSPEED, YSPEED, 100, 50, world);
+                weapon = new Baguette("Weapons/Melee/Baguette.png", 10);
+                level = new LevelOne(game, "Levels/LevelOne/cave.png", player, weapon, MAPFILE);
+
                 game.setScreen(level);
             }
         });
         edwardB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/edward/edward.png", 10, 10, 100, 50);
-                level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
+                player = new PlayableCharacter("Characters/edward/edward.png", XSPEED, YSPEED, 100, 50, world);
+                level = new LevelOne(game, "Levels/LevelOne/cave.png", player, weapon, MAPFILE);
                 game.setScreen(level);
             }
         });
         junyuB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/junyu/junyu.png", 10, 10, 100, 50);
-                level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
+                player = new PlayableCharacter("Characters/junyu/junyu.png", XSPEED, YSPEED, 100, 50, world);
+                level = new LevelOne(game, "Levels/LevelOne/cave.png", player, weapon, MAPFILE);
                 game.setScreen(level);
             }
         });
         kennyB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/kenny/kenny.png", 10, 10, 100, 50);
-                level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
+                player = new PlayableCharacter("Characters/kenny/kenny.png", XSPEED, YSPEED, 100, 50, world);
+                level = new LevelOne(game, "Levels/LevelOne/cave.png", player, weapon, MAPFILE);
                 game.setScreen(level);
             }
         });
         kyleB.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                player = new PlayableCharacter("Characters/kyle/kyle.png", 10, 10, 100, 50);
-                level = new LevelOne(game, "Levels/LevelOne/cave.png", player);
+                player = new PlayableCharacter("Characters/kyle/kyle.png", XSPEED, YSPEED, 100, 50, world);
+                level = new LevelOne(game, "Levels/LevelOne/cave.png", player, weapon, MAPFILE);
                 game.setScreen(level);
             }
         });
